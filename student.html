@@ -22,44 +22,52 @@
 		<div class="left-container">
 			<div class="info-container">
 				<div class="image-conatainer">
-					<img class="img" src="Images/login_bg.jpg" alt="Student Profile Photo" />
+					<img class="img" src="Images/profile_img.jpg" alt="Student Profile Photo" />
 				</div>
 				<div class="student-info">
 					<h3>Utkarsh Mandloi</h3>
 					<h3>70552200022</h3>
 					<h3>E220</h3>
-					<h3>Computer Science 2<sup>nd</sup></h3>
 					<h3>MPSTME</h3>
-					<h3>Mentor</h3>
+					<h3>B.Tech</h3>
+					<h3>Computer Science</h3>
+					<h3>Sem IV</h3>
+					<h3>Mentor Name</h3>
 				</div>
 			</div>
 		</div>
 		<div class="right-container">
 			<div class="right-sub-container">
-				<table class="info-container">
-					<tr>
-						<th colspan="2">Leave Application</th>
-					</tr>
-					<tr>
-						<th>From : <input type="date" /></th>
-						<th>To : <input type="date" /></th>
-					</tr>
-					<tr>
-						<th>Type of Leave</th>
-						<th>
-							<input type="radio" name="leave_type" />Authorized Leave<br />
-							<input type="radio" name="leave_type" />Special Leave
-						</th>
-					</tr>
-					<tr>
-						<th>Reason</th>
-						<th><textarea rows="3" cols="50"></textarea></th>
-					</tr>
-					<tr>
-						<th><input type="reset" value="clear Form" /></th>
-						<th><input type="button" value="Apply" /></th>
-					</tr>
-				</table>
+				<form action="">
+					<h1>Leave Application</h1>
+					<div class="leave-request">
+						<label for="fromDate"><b>From Date:</b></label>
+						<input type="date" id="fromDate" name="fromDate" required>
+						<label for="toDate"><b>To Date:</b></label>
+						<input type="date" id="toDate" name="toDate" required>
+					</div>
+					<div class="leave-type">
+						<div class="radio-buttons">
+							<p><b>Type of Leave : </b></p>
+							<label for="authorizedLeave">
+								<input type="radio" id="authorizedLeave" name="leaveType" value="authorized" required>
+								Authorized Leave
+							</label>
+							<label for="specialLeave">
+								<input type="radio" id="specialLeave" name="leaveType" value="special">
+								Special Leave
+							</label>
+						</div>
+					</div>
+					<div class="reason">
+						<label for="reasonForLeave"><b>Reason for Leave:</b></label>
+						<textarea rows="3" id="reasonForLeave" name="reasonForLeave" required></textarea>
+					</div>
+					<div class="buttons">
+						<button type="reset">Reset</button>
+						<button type="submit">Submit Application</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</body>
