@@ -62,7 +62,7 @@ header {
 
 .right-sub-container h1 {
 	text-align: center;
-	margin-bottom: 2em;
+	margin-bottom: 2rem;
 }
 
 .image-conatainer {
@@ -70,6 +70,7 @@ header {
 	justify-content: center;
 	min-height: 30%;
 	max-height: 30%;
+	min-width: 100%;
 	max-width: 100%;
 	/* padding: 7.5%;
 	margin: 5%; */
@@ -79,82 +80,99 @@ header {
 	min-height: 100%;
 	max-width: 50%;
 }
+.img:hover {
+	box-shadow: 0 0 10px #ccc;
+	max-width: 51%;
+	transition: 0.2s ease-in;
+}
 
-.student-info {
+.info {
 	text-align: center;
 	display: block;
-	min-width: 75%;
+	min-width: 100%;
 	max-width: 100%;
-	margin: 5%;
+	margin-top: 5%;
 	padding: 5%;
 }
 
-.student-info h3 {
+.info h3 {
 	padding: 1vh;
+	font-weight: 600;
 }
 table,
 th,
-/* td {
-	text-align: left;
+td {
 	text-decoration: none;
-	font-weight: 500;
+	font-size: 1.1rem;
 }
 table {
-	min-width: 70%;
-	max-width: 75%;
-	margin: 15%;
+	min-width: 100%;
+	max-width: 100%;
 }
 th {
-	padding: 5%;
-	min-width: 100%;
-	max-width: 50%;
-} */
-
+	text-align: left;
+}
+td {
+	text-align: left;
+	font-weight: 400;
+}
+textarea {
+	resize: none;
+}
+.leave-request {
+	display: flex;
+}
 .leave-request,
 .leave-type,
-.reason {
-    margin-bottom: 1rem;
+.reason,
+.address {
+	margin-bottom: 1rem;
 }
 
 .leave-request label,
 .leave-type label,
-.reason label {
-    display: block;
-    margin-bottom: 0.5rem;
+.reason label,
+.address label {
+	display: block;
+	margin-bottom: 1rem;
 }
 
-.leave-request input[type="date"],
-.reason textarea {
-    width: 100%;
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    outline: none;
+.leave-request input[type='date'],
+.reason textarea,
+.address textarea {
+	width: 100%;
+	padding: 0.5rem 1rem;
+	border: 1px solid #ccc;
+	border-radius: 50px;
+	outline: none;
 }
 
 .leave-type .radio-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	/* justify-content: space-between; */
+	/* margin-left: 10vw; */
+	margin-bottom: 5vh;
+	align-items: center;
 }
 
 .leave-type .radio-buttons label {
-    display: flex;
-    align-items: center;
+	margin-left: 3vw;
+	display: flex;
+	align-items: center;
 }
 
 .buttons {
-    display: flex;
+	display: flex;
 	justify-content: center;
 }
 
 .buttons button {
-    padding: 0.5rem 1rem;
-    background-color: #2a64a6;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+	padding: 0.5rem 1rem;
+	background-color: #2a64a6;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
 	border-radius: 50px;
 }
 
@@ -163,3 +181,18 @@ th {
 	transition: 0.2s ease-in-out;
 }
 
+#fromDate,
+#toDate {
+	flex: 1;
+	min-width: 30%;
+	max-width: 30%;
+	margin-right: 5vw;
+	margin: 2vw;
+	margin-top: -0.5vw;
+}
+/* #toDate {
+	align-items: end;
+} */
+.to-date {
+	margin-left: 9vw;
+}
