@@ -1,38 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins';
 }
 
 body {
-    display: flex;
-    height: 100vh;
-    background-image: url("/Images/dashboard_bg.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+	display: flex;
+	height: 100vh;
+	background-image: url('/Images/dashboard_bg.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
-.left-container, .right-container {
-    flex: 1;
+.left-container,
+.right-container {
+	flex: 1;
 }
 
 .left-container {
-    min-width: 30vw;
-    max-width: 30vw;
-    /* background-color: aquamarine; */
-    padding: 1em;
+	min-width: 30vw;
+	max-width: 30vw;
+	/* background-color: aquamarine; */
+	padding: 1em;
 }
 
 .right-container {
-    min-width: 70vw;
-    max-width: 70vw;
-    /* background-color: blue; */
-    padding: 1em;
+	min-width: 70vw;
+	max-width: 70vw;
+	/* background-color: blue; */
+	padding: 1em;
 }
 
+<<<<<<< Updated upstream
 .status-container {
     margin-top: 5em;
     height: 88%;
@@ -45,66 +47,93 @@ body {
     padding-bottom: 5px;
     overflow: hidden;
     overflow-y: scroll;
+=======
+.info-container {
+	margin-top: 5em;
+	height: 88%;
+	background-color: transparent;
+	backdrop-filter: blur(20px);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	/* padding: 1em; */
+	padding-top: 5px;
+	padding-bottom: 5px;
+>>>>>>> Stashed changes
 }
 
 ::-webkit-scrollbar {
-    width: 0;
+	width: 0;
 }
 
 .status-card {
-    display: flex;
-    padding: 1em;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    max-height: 14%;
-    min-height: 14%;
-    margin: 1em;
+	display: flex;
+	padding: 1em;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	max-height: 14%;
+	min-height: 14%;
+	margin: 1em;
+	background-color: rgba(210, 210, 210, 0.422);
+	opacity: 0.8;
+	transition: 0.5s ease-in;
+}
+.status-card:hover {
+	opacity: 1;
+}
+.active-card {
+	transition: 0.5s ease-out;
+	opacity: 1;
+	background-color: whitesmoke;
+	min-height: 20rem;
+	max-height: 25rem;
 }
 
-.status-card:hover{
-    cursor: pointer;
-    background-color: rgb(239, 239, 239);
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-    transition: 0.2s ease-in;
+.status-card:hover {
+	cursor: pointer;
+	background-color: rgb(239, 239, 239);
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+	transition: 0.2s ease-in;
 }
 
-.card-info, .status-indicator {
-    flex: 1;
+.card-info,
+.status-indicator {
+	flex: 1;
 }
 
 .card-info {
-    min-width: 80%;
-    max-width: 80%;
+	min-width: 80%;
+	max-width: 80%;
 }
 
 .status-indicator {
-    min-width: 20%;
-    max-width: 20%;
-    text-align: right;
-    transform: translateY(15px);
+	min-width: 20%;
+	max-width: 20%;
+	text-align: right;
+	transform: translateY(15px);
 }
 
-.status-indicator i{
-    font-size: 17px;
+.status-indicator i {
+	font-size: 17px;
 }
 
 header {
-    z-index: 2;
+	z-index: 2;
 }
 
 .status-indicator #red {
-    color: rgb(182, 0, 0);
+	color: rgb(182, 0, 0);
 }
 
 .status-indicator #yellow {
-    color: rgb(255, 225, 0);
+	color: rgb(255, 225, 0);
 }
 
 .status-indicator #green {
-    color: rgb(0, 165, 0);
+	color: rgb(0, 165, 0);
 }
 
 .right-sub-container {
+<<<<<<< Updated upstream
     margin-top: 5em;
     background-color: rgba(208,217,222,255);
     /* opacity: 90%; */
@@ -174,4 +203,23 @@ th {
 td {
 	text-align: left;
 	font-weight: 400;
+=======
+	margin-top: 5em;
+	background-color: rgba(208, 217, 222, 255);
+	backdrop-filter: blur(5px);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	height: 88%;
+	overflow: hidden;
+	overflow-y: scroll;
+	padding: 2em;
+}
+
+.active {
+	display: block;
+}
+
+.inactive {
+	display: none;
+>>>>>>> Stashed changes
 }

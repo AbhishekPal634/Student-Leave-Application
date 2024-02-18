@@ -1,0 +1,85 @@
+textarea {
+	resize: none;
+}
+.leave-request {
+	display: flex;
+}
+.leave-request,
+.leave-type,
+.reason,
+.address {
+	margin-bottom: 1rem;
+}
+
+.leave-request label,
+.leave-type label,
+.reason label,
+.address label {
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.leave-request input[type='date'],
+.reason textarea,
+.address textarea {
+	width: 100%;
+	padding: 0.5rem 1rem;
+	border: 1px solid #ccc;
+	border-radius: 50px;
+	outline: none;
+}
+
+.leave-type .radio-buttons {
+	display: flex;
+	/* justify-content: space-between; */
+	/* margin-left: 10vw; */
+	margin-bottom: 5vh;
+	align-items: center;
+}
+
+.leave-type .radio-buttons label {
+	margin-left: 3vw;
+	display: flex;
+	align-items: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.buttons button {
+	padding: 0.5rem 1rem;
+	background-color: #2a64a6;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	border-radius: 50px;
+}
+
+.buttons button:hover {
+	background-color: #173e6a;
+	transition: 0.2s ease-in-out;
+}
+
+#fromDate,
+#toDate {
+	flex: 1;
+	min-width: 30%;
+	max-width: 30%;
+	margin-right: 5vw;
+	margin: 2vw;
+	margin-top: -0.5vw;
+}
+/* #toDate {
+	align-items: end;
+} */
+.to-date {
+	margin-left: 9vw;
+}
+
+form h1 {
+	text-align: center;
+	margin-bottom: 2rem;
+}
