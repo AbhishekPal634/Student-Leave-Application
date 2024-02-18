@@ -33,7 +33,7 @@ body {
     padding: 1em;
 }
 
-.status-container {
+.info-container {
     margin-top: 5em;
     height: 88%;
     background-color: transparent;
@@ -43,8 +43,7 @@ body {
     /* padding: 1em; */
     padding-top: 5px;
     padding-bottom: 5px;
-    overflow: hidden;
-    overflow-y: scroll;
+    
 }
 
 ::-webkit-scrollbar {
@@ -111,4 +110,15 @@ header {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     height: 88%;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 2em;
+}
+
+.active{
+    display: block;
+}
+
+.inactive {
+    display: none;
 }

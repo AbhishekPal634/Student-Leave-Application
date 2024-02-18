@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="CSS/mentor_style.css" rel="stylesheet" type="text/css">
     <link href="CSS/nav.css" rel="stylesheet" type="text/css">
+    <link href="CSS/leave_form.css" rel="stylesheet" type="text/css">
+    <link href="CSS/profile.css" rel="stylesheet" type="text/css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>    
     <title>Apply for Leave Online</title>
 </head>
@@ -15,98 +17,276 @@
             <a href="#">Apply for Leave</a>
             <a href="#">Mentees</a>
             <a href="#">Defaulters</a>
-            <!-- <a href="#">Services</a> -->
+            <a href="#">Leave Applicants</a>
             <button type="submit">Logout</button>
         </nav>
     </header>
     <div class="left-container">
-        <div class="status-container">
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Abhishek Pal</h1>
-                    <h5 class="sap">70552200030</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="red" class='bx bxs-circle' ></i>
-                </div>
+        <div class="info-container">
+            <div class="image-conatainer">
+                <img class="img" src="Images/profile_img.jpg" alt="Student Profile Photo" />
             </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Amit Upadhyay</h1>
-                    <h5 class="sap">70552200010</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="yellow" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Utkarsh Mandloi</h1>
-                    <h5 class="sap">70552200022</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="green" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Abhishek Pal</h1>
-                    <h5 class="sap">70552200030</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="red" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Amit Upadhyay</h1>
-                    <h5 class="sap">70552200010</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="yellow" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Utkarsh Mandloi</h1>
-                    <h5 class="sap">70552200022</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="green" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Abhishek Pal</h1>
-                    <h5 class="sap">70552200030</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="red" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Amit Upadhyay</h1>
-                    <h5 class="sap">70552200010</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="yellow" class='bx bxs-circle' ></i>
-                </div>
-            </div>
-            <div class="status-card">
-                <div class="card-info">
-                    <h3 class="name">Utkarsh Mandloi</h1>
-                    <h5 class="sap">70552200022</h5>
-                </div>
-                <div class="status-indicator">
-                    <i id="green" class='bx bxs-circle' ></i>
-                </div>
+            <div class="info">
+                <table>
+                    <tr>
+                        <th><h3>Name</h3></th>
+                        <td>Utkarsh Mandloi</td>
+                    </tr>
+                    <tr>
+                        <th><h3>Emp. ID</h3></th>
+                        <td>70552200022</td>
+                    </tr>
+                    <tr>
+                        <th><h3>Dept.</h3></th>
+                        <td>Comp. Engg.</td>
+                    </tr>
+                    <tr>
+                        <th><h3>School</h3></th>
+                        <td>MPSTME</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
     <div class="right-container">
         <div class="right-sub-container">
-            
+            <div class="applicants inactive">
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="red" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="yellow" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="green" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="red" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="yellow" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="green" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="red" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="yellow" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                    <div class="status-indicator">
+                        <i id="green" class='bx bxs-circle' ></i>
+                    </div>
+                </div>
+            </div>
+            <div class="leave-app active">
+                <form action="">
+					<h1>Leave Application</h1>
+					<div class="leave-request">
+						<label for="fromDate"><b>From Date:</b></label>
+						<input type="date" id="fromDate" name="fromDate" required />
+						<label for="toDate" class="to-date"><b>To Date:</b></label>
+						<input type="date" id="toDate" name="toDate" required />
+					</div>
+					<div class="leave-type">
+						<div class="radio-buttons">
+							<p><b>Type of Leave : </b></p>
+							<label for="authorizedLeave">
+								<input
+									type="radio"
+									id="authorizedLeave"
+									name="leaveType"
+									value="authorized"
+									required
+									checked />
+								Authorized Leave
+							</label>
+							<label for="specialLeave">
+								<input type="radio" id="specialLeave" name="leaveType" value="special" />
+								Special Leave
+							</label>
+						</div>
+					</div>
+					<div class="reason">
+						<label for="reasonForLeave"><b>Reason for Leave:</b></label>
+						<textarea rows="4" id="reasonForLeave" name="reasonForLeave" required></textarea>
+					</div>
+					<div class="address">
+						<label for="permanent_address"><b>Permanent Address:</b></label>
+						<textarea rows="4" id="permanent_address" name="address" required></textarea>
+					</div>
+					<div class="buttons">
+						<button type="reset">Reset</button>
+						<button type="submit">Submit Application</button>
+					</div>
+				</form>
+            </div>
+            <div class="mentees inactive">
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="defaulters inactive">
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Abhishek Pal</h1>
+                        <h5 class="sap">70552200030</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Amit Upadhyay</h1>
+                        <h5 class="sap">70552200010</h5>
+                    </div>
+                </div>
+                <div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">Utkarsh Mandloi</h1>
+                        <h5 class="sap">70552200022</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
