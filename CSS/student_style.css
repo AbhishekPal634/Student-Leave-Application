@@ -62,3 +62,59 @@ header {
     padding: 2em;
 }
 
+.active {
+	display: block;
+}
+
+.inactive {
+	display: none;
+}
+
+.card-info {
+	min-width: 80%;
+	max-width: 80%;
+	/* margin-bottom: 2em; */
+}
+
+.status-card {
+	/* display: flex; */
+	padding: 1em;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	max-height: 14%;
+	min-height: 14%;
+	margin: 1em;
+	opacity: 0.8;
+}
+
+.status-card:hover {
+	cursor: pointer;
+	background-color: rgb(239, 239, 239);
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+	transition: 0.2s ease-in;
+	opacity: 1;
+}
+
+.status-dropdown {
+	padding: 1rem;
+}
+
+.progress-bar {
+	width: 100%;
+}
+
+.attendance-sheet {
+	width: 100%;
+}
+
+.attendance-sheet th {
+	text-align: center;
+}
+
+.dropdown-active {
+	display: block;
+}
+
+.dropdown-inactive {
+	display: none;
+}
