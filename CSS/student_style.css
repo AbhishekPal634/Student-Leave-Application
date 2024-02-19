@@ -51,14 +51,152 @@ header {
 }
 
 .right-sub-container {
+	padding: 2em;
 	margin-top: 5em;
-    background-color: rgba(208,217,222,255);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    height: 88%;
-    overflow: hidden;
+	background-color: rgba(208, 217, 222, 255);
+	backdrop-filter: blur(5px);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	height: 88%;
+	overflow: hidden;
     overflow-y: scroll;
-    padding: 2em;
+	
 }
 
+.right-sub-container h1 {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.image-conatainer {
+	display: flex;
+	justify-content: center;
+	min-height: 30%;
+	max-height: 30%;
+	min-width: 100%;
+	max-width: 100%;
+	/* padding: 7.5%;
+	margin: 5%; */
+}
+.img {
+	border-radius: 50%;
+	min-height: 100%;
+	max-width: 50%;
+}
+.img:hover {
+	box-shadow: 0 0 10px #ccc;
+	max-width: 51%;
+	transition: 0.2s ease-in;
+}
+
+.info {
+	text-align: center;
+	display: block;
+	min-width: 100%;
+	max-width: 100%;
+	margin-top: 5%;
+	padding: 5%;
+}
+
+.info h3 {
+	padding: 1vh;
+	font-weight: 600;
+}
+table,
+th,
+td {
+	text-decoration: none;
+	font-size: 1.1rem;
+}
+table {
+	min-width: 100%;
+	max-width: 100%;
+}
+th {
+	text-align: left;
+}
+td {
+	text-align: left;
+	font-weight: 400;
+}
+textarea {
+	resize: none;
+}
+.leave-request {
+	display: flex;
+}
+.leave-request,
+.leave-type,
+.reason,
+.address {
+	margin-bottom: 1rem;
+}
+
+.leave-request label,
+.leave-type label,
+.reason label,
+.address label {
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.leave-request input[type='date'],
+.reason textarea,
+.address textarea {
+	width: 100%;
+	padding: 0.5rem 1rem;
+	border: 1px solid #ccc;
+	border-radius: 50px;
+	outline: none;
+}
+
+.leave-type .radio-buttons {
+	display: flex;
+	/* justify-content: space-between; */
+	/* margin-left: 10vw; */
+	margin-bottom: 5vh;
+	align-items: center;
+}
+
+.leave-type .radio-buttons label {
+	margin-left: 3vw;
+	display: flex;
+	align-items: center;
+	margin-top: 2vh;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.buttons button {
+	padding: 0.5rem 1rem;
+	background-color: #2a64a6;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	border-radius: 50px;
+}
+
+.buttons button:hover {
+	background-color: #173e6a;
+	transition: 0.2s ease-in-out;
+}
+
+#fromDate,
+#toDate {
+	flex: 1;
+	min-width: 30%;
+	max-width: 30%;
+	margin-right: 5vw;
+	margin: 2vw;
+	margin-top: -0.5vw;
+}
+/* #toDate {
+	align-items: end;
+} */
+.to-date {
+	margin-left: 4.5vw;
+}
