@@ -10,16 +10,17 @@
 		<link href="CSS/progressbar.css" rel="stylesheet" type="text/css">
 		<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 		<script src="JS/progressbar.js" defer></script>
+		<script defer src="JS/student.js"></script>
 		<title>Apply for Leave Online</title>
 	</head>
 	<body>
 		<header class="header">
 			<a href="#" class="logo">Student Dashboard</a>
 			<nav class="navbar">
-				<a href="#">Apply for Leave</a>
-				<a href="#">Status</a>
-				<a href="#">Attendence</a>
-				<a href="#">Leave History</a>
+				<a href="leave-app">Apply for Leave</a>
+				<a href="status">Status</a>
+				<a href="attendance">Attendence</a>
+				<a href="leave-history">Leave History</a>
 				<button type="submit">Logout</button>
 			</nav>
 		</header>
@@ -60,7 +61,6 @@
 		</div>
 		<div class="right-container">
 			<div class="right-sub-container">
-				<div class="leave-app inactive">
 					<div class="leave-app inactive">
 						<form action="">
 							<h1>Leave Application</h1>
@@ -103,7 +103,6 @@
 							</div>
 						</form>
 					</div>
-				</div>
 				<div class="status inactive">
 					<div class="status-card">
 						<div class="card-info">
@@ -111,7 +110,7 @@
 							<h3 class="date-to">To : </h1>
 						</div>
 						<div class="status-dropdown dropdown-active">
-							<div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
+							<div class="progress-bar" data-label="Loading..."></div>
 							<h4 class="last-approved">Last Approved by : </h4>
 							<h4 class="approve-status">Status : </h4>
 						</div>
