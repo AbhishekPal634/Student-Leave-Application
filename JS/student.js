@@ -22,7 +22,6 @@ nav.addEventListener('click', function (e) {
 		document.querySelector(`.${toShow}`).classList.remove('inactive');
 		document.querySelector(`.${toShow}`).classList.add('active');
 		// e.target.style.backgroundColor = 'grey';
-		console.log(toShow);
 	}
 	if (e.target.type === 'submit') {
 		const ans = window.confirm('Sure???');
@@ -35,20 +34,20 @@ nav.addEventListener('click', function (e) {
 // STATUS
 let count = 0;
 
-leaveHistory.addEventListener('mouseup', function (e) {
+const activeStatusCard = function (e) {
 	const active = e.target.closest('.status-card');
 
 	if (active) {
 		const allCard = this.querySelectorAll('.status-dropdown');
-		if (active.classList.contains('dropdown-active')) count = count % 2 === 0 ? 0 : 1;
-		if (!active.classList.contains('dropdown-active')) count = 0;
+		if (active.querySelector('.status-dropdown').classList.contains('dropdown-active'))
+			count = count % 2 === 0 ? 0 : 1;
+		if (!active.querySelector('.status-dropdown').classList.contains('dropdown-active')) count = 0;
 
 		allCard.forEach(card => {
 			card.classList.add('dropdown-inactive');
 			card.classList.remove('dropdown-active');
 		});
 
-		// console.log(active.classList);
 		if (count % 2 === 0) {
 			active.querySelector('.status-dropdown').classList.add('dropdown-active');
 			active.querySelector('.status-dropdown').classList.remove('dropdown-inactive');
@@ -56,4 +55,7 @@ leaveHistory.addEventListener('mouseup', function (e) {
 
 		count++;
 	}
-});
+};
+
+leaveHistory.addEventListener('mouseup', activeStatusCard);
+statusCard.addEventListener('mouseup', activeStatusCard);
