@@ -43,6 +43,7 @@ body {
     width: 100%;
     height: 5vh;
     margin: 1.5em 0;
+    margin-top: 2.2em;
 }
 
 .input-box input {
@@ -92,3 +93,9 @@ body {
     transition: 0.4s ease-in;
     color: whitesmoke;
 } 
+
+span {
+    color: red;
+    margin-left: 1.5em;
+    font-size: 0.8em;
+}

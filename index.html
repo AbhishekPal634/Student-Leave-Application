@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/login_style.css" rel="stylesheet" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Apply for Leave Online</title>
+</head>
+<body ng-app="myApp">
+    <div class="login-box" ng-controller="loginCtrl">
+        <form name="loginForm" ng-submit="submitForm()" novalidate>
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" name="username" ng-model="formData.username" required>
+                <i class='bx bxs-user-circle' ></i>
+                <span ng-show="loginForm.username.$error.required && !loginForm.username.$pristine" class="error">Username is required.</span>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password" ng-model="formData.password" required>
+                <i class='bx bxs-lock-alt'></i>
+                <span ng-show="loginForm.password.$error.required && !loginForm.password.$pristine" class="error">Password is required.</span>
+            </div>
+            <button type="submit" class="sub-btn" ng-style="{'background-color': loginForm.$valid ? 'rgba(68,96,106,255)' : 'grey'}" ng-disabled="!loginForm.$valid">Login</button>
+        </form>
+    </div>
+
+    <script>
+        angular.module('myApp', [])
+            .controller('loginCtrl', function ($scope) {
+                $scope.submitForm = function () {
+                    if ($scope.loginForm.$valid) {
+                        // Form is valid, perform your login logic here
+                        console.log('Form submitted successfully!');
+                    }
+                };
+            });
+    </script>
+</body>
+</html>

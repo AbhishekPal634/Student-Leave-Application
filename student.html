@@ -1,168 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="CSS/student_style.css" rel="stylesheet" type="text/css" />
-		<link href="CSS/nav.css" rel="stylesheet" type="text/css" />
-		<link href="CSS/leave_form.css" rel="stylesheet" type="text/css">
-		<link href="CSS/profile.css" rel="stylesheet" type="text/css">
-		<link href="CSS/progressbar.css" rel="stylesheet" type="text/css">
-		<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-		<script src="JS/progressbar.js" defer></script>
-		<script defer src="JS/student.js"></script>
-		<title>Apply for Leave Online</title>
-	</head>
-	<body>
-		<header class="header">
-			<a href="#" class="logo">Student Dashboard</a>
-			<nav class="navbar">
-				<a href="leave-app">Apply for Leave</a>
-				<a href="status">Status</a>
-				<a href="attendance">Attendence</a>
-				<a href="leave-history">Leave History</a>
-				<button type="submit">Logout</button>
-			</nav>
-		</header>
-		<div class="left-container">
-			<div class="info-container">
-				<div class="image-conatainer">
-					<img class="img" src="Images/profile_img.jpg" alt="Student Profile Photo" />
-				</div>
-				<div class="info">
-					<table>
-						<tr>
-							<th><h3>Name</h3></th>
-							<td>Utkarsh Mandloi</td>
-						</tr>
-						<tr>
-							<th><h3>SAP ID</h3></th>
-							<td>70552200022</td>
-						</tr>
-						<tr>
-							<th><h3>Roll No.</h3></th>
-							<td>E220</td>
-						</tr>
-						<tr>
-							<th><h3>Course</h3></th>
-							<td>B.Tech</td>
-						</tr>
-						<tr>
-							<th><h3>Branch</h3></th>
-							<td>Computer Science</td>
-						</tr>
-						<tr>
-							<th><h3>Mentor</h3></th>
-							<td>Kiran Salunke</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div class="right-container">
-			<div class="right-sub-container">
-					<div class="leave-app inactive">
-						<form action="">
-							<h1>Leave Application</h1>
-							<div class="leave-request">
-								<label for="fromDate"><b>From Date:</b></label>
-								<input type="date" id="fromDate" name="fromDate" required />
-								<label for="toDate" class="to-date"><b>To Date:</b></label>
-								<input type="date" id="toDate" name="toDate" required />
-							</div>
-							<div class="leave-type">
-								<div class="radio-buttons">
-									<p><b>Type of Leave : </b></p>
-									<label for="authorizedLeave">
-										<input
-											type="radio"
-											id="authorizedLeave"
-											name="leaveType"
-											value="authorized"
-											required
-											checked />
-										Authorized Leave
-									</label>
-									<label for="specialLeave">
-										<input type="radio" id="specialLeave" name="leaveType" value="special" />
-										Special Leave
-									</label>
-								</div>
-							</div>
-							<div class="reason">
-								<label for="reasonForLeave"><b>Reason for Leave:</b></label>
-								<textarea rows="4" id="reasonForLeave" name="reasonForLeave" required></textarea>
-							</div>
-							<div class="address">
-								<label for="permanent_address"><b>Permanent Address:</b></label>
-								<textarea rows="4" id="permanent_address" name="address" required></textarea>
-							</div>
-							<div class="buttons">
-								<button type="reset">Reset</button>
-								<button type="submit">Submit Application</button>
-							</div>
-						</form>
-					</div>
-				<div class="status inactive">
-					<div class="status-card">
-						<div class="card-info">
-							<h3 class="date-from">From : </h1>
-							<h3 class="date-to">To : </h1>
-						</div>
-						<div class="status-dropdown dropdown-active">
-							<div class="progress-bar" data-label="Loading..."></div>
-							<h4 class="last-approved">Last Approved by : </h4>
-							<h4 class="approve-status">Status : </h4>
-						</div>
-					</div>
-				</div>
-				<div class="attendance inactive">
-					<table class="attendance-sheet">
-						<tr>
-							<th>Subject</th>
-							<th>Conducted</th>
-							<th>Present</th>
-							<th>Absent</th>
-							<th>Percentage</th>
-						</tr>
-					</table>
-				</div>
-				<div class="leave-history active">
-					<div class="status-card">
-						<div class="card-info">
-							<h3 class="date-from">From : </h1>
-							<h3 class="date-to">To : </h1>
-						</div>
-						<div class="status-dropdown dropdown-active">
-							<div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
-							<h4 class="last-approved">Last Approved by : </h4>
-							<h4 class="approve-status">Status : </h4>
-						</div>
-					</div>
-					<div class="status-card">
-						<div class="card-info">
-							<h3 class="date-from">From : </h1>
-							<h3 class="date-to">To : </h1>
-						</div>
-						<div class="status-dropdown dropdown-inactive">
-							<div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
-							<h4 class="last-approved">Last Approved by : </h4>
-							<h4 class="approve-status">Status : </h4>
-						</div>
-					</div>
-					<div class="status-card">
-						<div class="card-info">
-							<h3 class="date-from">From : </h1>
-							<h3 class="date-to">To : </h1>
-						</div>
-						<div class="status-dropdown dropdown-inactive">
-							<div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
-							<h4 class="last-approved">Last Approved by : </h4>
-							<h4 class="approve-status">Status : </h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="CSS/student_style.css" rel="stylesheet" type="text/css">
+  <link href="CSS/nav.css" rel="stylesheet" type="text/css">
+  <link href="CSS/leave_form.css" rel="stylesheet" type="text/css">
+  <link href="CSS/profile.css" rel="stylesheet" type="text/css">
+  <link href="CSS/progressbar.css" rel="stylesheet" type="text/css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="JS/progressbar.js" defer></script>
+  <script defer src="JS/student.js"></script>
+  <title>Apply for Leave Online</title>
+</head>
+
+<body ng-controller="myController">
+  <header class="header">
+    <a href="#" class="logo">Student Dashboard</a>
+    <nav class="navbar">
+      <a href="leave-app">Apply for Leave</a>
+      <a href="status">Status</a>
+      <a href="attendance">Attendance</a>
+      <a href="leave-history">Leave History</a>
+      <button type="submit">Logout</button>
+    </nav>
+  </header>
+  <div class="left-container">
+    <div class="info-container">
+      <div class="image-conatainer">
+        <img class="img" src="Images/profile_img.jpg" alt="Student Profile Photo">
+      </div>
+      <div class="info">
+        <table>
+          <tr>
+            <th><h3>Name</h3></th>
+            <td>Utkarsh Mandloi</td>
+          </tr>
+          <tr>
+            <th><h3>SAP ID</h3></th>
+            <td>70552200022</td>
+          </tr>
+          <tr>
+            <th><h3>Roll No.</h3></th>
+            <td>E220</td>
+          </tr>
+          <tr>
+            <th><h3>Course</h3></th>
+            <td>B.Tech</td>
+          </tr>
+          <tr>
+            <th><h3>Branch</h3></th>
+            <td>Computer Science</td>
+          </tr>
+          <tr>
+            <th><h3>Semester</h3></th>
+            <td>IV</td>
+          </tr>
+          <tr>
+            <th><h3>Mentor</h3></th>
+            <td>Kiran Salunke</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="right-sub-container">
+      <div class="leave-app active">
+        <form name="leaveForm" ng-submit="submitForm()" novalidate>
+          <h1>Leave Application</h1>
+          <div class="leave-request">
+            <label for="fromDate"><b>From Date:</b></label>
+            <input type="date" id="fromDate" name="fromDate" ng-model="fromDate" ng-max="toDate" required>
+            <label for="toDate" class="to-date"><b>To Date:</b></label>
+            <input type="date" id="toDate" name="toDate" ng-model="toDate" ng-min="fromDate"
+              ng-max="{{ today | date:'yyyy-MM-dd' }}" required>
+          </div>
+          <div class="span-error">
+            <span class="error" ng-show="leaveForm.fromDate.$error.required && leaveForm.fromDate.$dirty">From Date is
+              required.</span>
+            <span class="error" ng-show="leaveForm.fromDate.$error.max">From Date cannot be after To Date.</span>
+            <span class="error" ng-show="leaveForm.toDate.$error.required && leaveForm.toDate.$dirty">To Date is
+              required.</span>
+            <span class="error" ng-show="leaveForm.toDate.$error.min">To Date cannot be before From Date.</span>
+            <span class="error" ng-show="leaveForm.toDate.$error.max">To Date cannot be after today.</span>
+          </div>
+          <div class="leave-type">
+            <div class="radio-buttons">
+              <p><b>Type of Leave:</b></p>
+              <label for="authorizedLeave">
+                <input type="radio" id="authorizedLeave" name="leaveType" value="authorized" ng-model="leaveType"
+                  required>
+                Authorized Leave
+              </label>
+              <label for="specialLeave">
+                <input type="radio" id="specialLeave" name="leaveType" value="special" ng-model="leaveType">
+                Special Leave
+              </label>
+            </div>
+          </div>
+          <div class="reason">
+            <label for="reasonForLeave"><b>Reason for Leave:</b></label>
+            <textarea rows="4" id="reasonForLeave" name="reasonForLeave" ng-model="reasonForLeave" required></textarea>
+            <span class="error"
+              ng-show="leaveForm.reasonForLeave.$error.required && leaveForm.reasonForLeave.$dirty">Reason for Leave is
+              required.</span>
+          </div>
+          <div class="address">
+            <label for="permanent_address"><b>Permanent Address:</b></label>
+            <textarea rows="4" id="permanent_address" name="address" ng-model="address" required></textarea>
+            <span class="error"
+              ng-show="leaveForm.address.$error.required && leaveForm.address.$dirty">Permanent Address is
+              required.</span>
+          </div>
+          <div class="buttons">
+            <button type="reset" ng-click="resetForm()">Reset</button>
+            <button type="submit" ng-style="{'background-color': leaveForm.$valid ? '' : 'grey'}"
+              ng-disabled="leaveForm.$invalid">Submit Application</button>
+          </div>
+        </form>
+      </div>
+      <div class="status inactive">
+        <div class="status-card">
+          <div class="card-info">
+            <h3 class="date-from">From:</h3>
+            <h3 class="date-to">To:</h3>
+          </div>
+          <div class="status-dropdown dropdown-active">
+            <div class="progress-bar" data-label="Loading..."></div>
+            <h4 class="last-approved">Last Approved by:</h4>
+            <h4 class="approve-status">Status:</h4>
+          </div>
+        </div>
+      </div>
+      <div class="attendance inactive">
+        <table class="attendance-sheet">
+          <tr>
+            <th>Subject</th>
+            <th>Conducted</th>
+            <th>Present</th>
+            <th>Absent</th>
+            <th>Percentage</th>
+          </tr>
+          <tr ng-repeat="subject in attendanceData">
+            <td>{{ subject.name }}</td>
+            <td>{{ subject.conducted }}</td>
+            <td>{{ subject.present }}</td>
+            <td>{{ subject.absent }}</td>
+            <td>{{ subject.percentage }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="leave-history inactive">
+        <div class="status-card">
+          <div class="card-info">
+            <h3 class="date-from">From:</h3>
+            <h3 class="date-to">To:</h3>
+          </div>
+          <div class="status-dropdown dropdown-active">
+            <div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
+            <h4 class="last-approved">Last Approved by:</h4>
+            <h4 class="approve-status">Status:</h4>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="card-info">
+            <h3 class="date-from">From:</h3>
+            <h3 class="date-to">To:</h3>
+          </div>
+          <div class="status-dropdown dropdown-inactive">
+            <div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
+            <h4 class="last-approved">Last Approved by:</h4>
+            <h4 class="approve-status">Status:</h4>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="card-info">
+            <h3 class="date-from">From:</h3>
+            <h3 class="date-to">To:</h3>
+          </div>
+          <div class="status-dropdown dropdown-inactive">
+            <div class="progress-bar" style="--width: 10" data-label="Loading..."></div>
+            <h4 class="last-approved">Last Approved by:</h4>
+            <h4 class="approve-status">Status:</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    angular.module('myApp', [])
+      .controller('myController', function ($scope) {
+        $scope.today = new Date();
+
+        $scope.attendanceData = [
+          { name: 'WP', conducted: 20, present: 18, absent: 2, percentage: 90 },
+          { name: 'CVT', conducted: 15, present: 14, absent: 1, percentage: 93.33 }
+        ];
+
+        $scope.submitForm = function () {
+          if ($scope.leaveForm.$valid) {
+            console.log('Form submitted successfully!');
+          } else {
+            console.log('Form is invalid. Please check your inputs.');
+          }
+        };
+
+        $scope.resetForm = function () {
+          $scope.leaveForm.$setPristine();
+          $scope.leaveForm.$setUntouched();
+          $scope.fromDate = null;
+          $scope.toDate = null;
+          $scope.leaveType = null;
+          $scope.reasonForLeave = null;
+          $scope.address = null;
+        };
+      });
+  </script>
+</body>
+
 </html>
