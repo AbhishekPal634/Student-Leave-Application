@@ -24,7 +24,7 @@ navBar.addEventListener('click', function (e) {
 	if (e.target.type === 'submit') {
 		const ans = window.confirm('Sure???');
 		if (ans) {
-			window.location.replace('login.html');
+			window.location.replace('index.html');
 		}
 	}
 });
@@ -53,3 +53,76 @@ const activeCard = function (e) {
 mentees.addEventListener('mouseup', activeCard);
 defaulters.addEventListener('mouseup', activeCard);
 leaveApplicants.addEventListener('mouseup', activeCard);
+
+//NEW STUFFFF
+
+function getMentorLeaveCount() {
+	return new Promise((resolve, reject) => {
+		fetch('/mentorLeaveCount', {
+			method: 'GET',
+			credentials: 'same-origin', // Assuming your session uses cookies for authentication
+		})
+			.then(function (response) {
+				if (response.ok) {
+					return response.json();
+				} else {
+					throw new Error('Network response was not ok.');
+				}
+			})
+			.then(function (data) {
+				resolve(data); // Resolve with the fetched data
+			})
+			.catch(function (error) {
+				reject(error); // Reject with the error
+			});
+	});
+}
+
+getMentorLeaveCount()
+	.then(function (data) {
+		// Use the data here
+		console.log('Fetched data:', data);
+		const applicantsContainer = document.querySelector('.applicants');
+		applicantsContainer.innerHTML = ''; // Clear previous content
+		data.forEach(function (row) {
+			const name = row.name || 'N/A';
+			const sapId = row.sap_id || 'N/A';
+			const fromdate = row.fromdate ? new Date(row.fromdate).toLocaleDateString() : 'N/A';
+			const todate = row.todate ? new Date(row.todate).toLocaleDateString() : 'N/A';
+			const typeOfLeave = row.type_of_leave || 'N/A';
+			const reason = row.reason || 'N/A';
+			const address = row.address || 'N/A';
+			const lastApprovedBy = row.last_approved_by || 'N/A';
+
+			if (lastApprovedBy === 'none') {
+				const html = `<div class="status-card">
+                    <div class="card-info">
+                        <h3 class="name">${name}</h3>
+                        <h3 class="name">${sapId}</h3>
+                        <p class="leave-details">
+                            From: ${fromdate}<br>
+                            To: ${todate}<br>
+                            Type: ${typeOfLeave}<br>
+                            Reason: ${reason}<br>
+                            Address: ${address}<br>
+                            Last Approved By: ${lastApprovedBy}
+                        </p>
+                    </div>
+					<div class="button">
+                        <input class="button approve" type="submit" value="Approve">
+                        <input class="button reject" type="submit" value="reject">
+                    </div>
+                    <div class="status-indicator">
+                        <i id="red" class='bx bxs-circle' ></i>
+                    </div>
+                </div>`;
+				const div = document.createElement('div'); // Create a new div element
+				div.innerHTML = html; // Set the HTML content of the div
+				applicantsContainer.appendChild(div.firstChild); // Append the first child of the created div
+			}
+		});
+	})
+	.catch(function (error) {
+		console.error('Error fetching mentor leave count:', error);
+		// Handle error, e.g., display error message
+	});
