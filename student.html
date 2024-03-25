@@ -20,7 +20,7 @@
 			<a href="#" class="logo">Student Dashboard</a>
 			<nav class="navbar">
 				<a href="leave-app" style="color: #f00">Apply for Leave</a>
-				<a href="status" ng-click="fetchDates()">Status</a>
+				<a href="status" ng-click="fetchStatusData()">Status</a>
 				<a href="attendance">Attendance</a>
 				<a href="leave-history">Leave History</a>
 				<button type="submit">Logout</button>
@@ -35,34 +35,34 @@
 					<table>
 						<tr>
 							<th><h3>Name</h3></th>
-							<td>Utkarsh Mandloi</td>
+							<td>{{ name }}</td>
 						</tr>
 						<tr>
 							<th><h3>SAP ID</h3></th>
-							<td>70552200022</td>
+							<td>{{ sapId }}</td>
 						</tr>
 						<tr>
 							<th><h3>Roll No.</h3></th>
-							<td>E220</td>
+							<td>{{ rollNo }}</td>
 						</tr>
 						<tr>
 							<th><h3>Course</h3></th>
-							<td>B.Tech</td>
+							<td>{{ course }}</td>
 						</tr>
 						<tr>
 							<th><h3>Branch</h3></th>
-							<td>Computer Science</td>
+							<td>{{ branch }}</td>
 						</tr>
 						<tr>
 							<th><h3>Semester</h3></th>
-							<td>IV</td>
+							<td>{{ semester }}</td>
 						</tr>
 						<tr>
 							<th><h3>Mentor</h3></th>
-							<td>Kiran Salunke</td>
+							<td>{{ mentor }}</td>
 						</tr>
 					</table>
-				</div>
+				</div>				
 			</div>
 		</div>
 		<div class="right-container">
@@ -182,7 +182,7 @@
 						<div class="status-dropdown dropdown-active">
 							<div class="progress-bar" data-label="Loading..."></div>
 							<h4 class="last-approved">Last Approved by: {{ lastApprovedBy }}</h4>
-							<h4 class="approve-status">Status:</h4>
+							<h4 class="approve-status">Status: {{ status }}</h4>
 						</div>
 					</div>
 				</div>
@@ -269,18 +269,28 @@
 					$scope.address = null;
 				};
 
-				$scope.fetchDates = function () {
+				$scope.fetchProfileData = function () {
 					$http
-						.get('/dates')
+						.get('/profileData')
 						.then(function (response) {
 							// If request is successful and data exists, update scope variables
 							if (response.data) {
-								$scope.fromDate = new Date(response.data.fromDate).toLocaleDateString();
-								$scope.toDate = new Date(response.data.toDate).toLocaleDateString();
+								$scope.name = response.data.name;
+								$scope.sapId = response.data.sap_id;
+								$scope.rollNo = response.data.roll;
+								$scope.course = response.data.course;
+								$scope.branch = response.data.branch;
+								$scope.semester = response.data.sem;
+								$scope.mentor = response.data.mentorid;
 							} else {
-								// If no data exists, display "none"
-								$scope.fromDate = 'none';
-								$scope.toDate = 'none';
+								// If no data exists, display "none" or empty strings
+								$scope.name = '';
+								$scope.sapId = '';
+								$scope.rollNo = '';
+								$scope.course = '';
+								$scope.branch = '';
+								$scope.semester = '';
+								$scope.mentor = '';
 							}
 						})
 						.catch(function (error) {
@@ -289,8 +299,36 @@
 						});
 				};
 
+
+				$scope.fetchStatusData = function () {
+					$http
+						.get('/statuscarddata')
+						.then(function (response) {
+							// If request is successful and data exists, update scope variables
+							if (response.data) {
+								$scope.fromDate = new Date(response.data.fromDate).toLocaleDateString();
+								$scope.toDate = new Date(response.data.toDate).toLocaleDateString();
+								$scope.lastApprovedBy = response.data.last_approved_by;
+								$scope.status = response.data.status;
+								console.log('Response data:', response.data);
+							} else {
+								// If no data exists, display "none"
+								$scope.fromDate = 'none';
+								$scope.toDate = 'none';
+								$scope.lastApprovedBy = 'none';
+								$scope.status = 'none';
+							}
+						})
+						.catch(function (error) {
+							console.error('Error fetching dates:', error);
+							// Handle error, e.g., display error message
+						});
+				};
+
+
 				// Call fetchDates function when controller initializes
-				$scope.fetchDates();
+				$scope.fetchProfileData();
+				$scope.fetchStatusData();
 			});
 		</script>
 	</body>

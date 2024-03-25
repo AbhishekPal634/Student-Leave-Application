@@ -32,19 +32,19 @@
                 <table>
                     <tr>
                         <th><h3>Name</h3></th>
-                        <td>Utkarsh Mandloi</td>
+                        <td>{{ name }}</td>
                     </tr>
                     <tr>
                         <th><h3>Emp. ID</h3></th>
-                        <td>70552200022</td>
+                        <td>{{ mentorid }}</td>
                     </tr>
                     <tr>
                         <th><h3>Dept.</h3></th>
-                        <td>Comp. Engg.</td>
+                        <td>{{ dept }}</td>
                     </tr>
                     <tr>
                         <th><h3>School</h3></th>
-                        <td>MPSTME</td>
+                        <td>{{ school }}</td>
                     </tr>
                 </table>
             </div>
@@ -305,27 +305,54 @@
     </div>
     <script>
         angular.module('myApp', [])
-          .controller('myController', function ($scope) {
-            $scope.today = new Date();
-    
-            $scope.submitForm = function () {
-              if ($scope.leaveForm.$valid) {
-                console.log('Form submitted successfully!');
-              } else {
-                console.log('Form is invalid. Please check your inputs.');
-              }
-            };
-    
-            $scope.resetForm = function () {
-                $scope.leaveForm.$setPristine();
-                $scope.leaveForm.$setUntouched();
-                $scope.fromDate = null;
-                $scope.toDate = null;
-                $scope.leaveType = null;
-                $scope.reasonForLeave = null;
-                $scope.address = null;
+            .controller('myController', function ($scope, $http) {
+                $scope.today = new Date();
+
+                $scope.submitForm = function () {
+                    if ($scope.leaveForm.$valid) {
+                        console.log('Form submitted successfully!');
+                    } else {
+                        console.log('Form is invalid. Please check your inputs.');
+                    }
                 };
-          });
+
+                $scope.resetForm = function () {
+                    $scope.leaveForm.$setPristine();
+                    $scope.leaveForm.$setUntouched();
+                    $scope.fromDate = null;
+                    $scope.toDate = null;
+                    $scope.leaveType = null;
+                    $scope.reasonForLeave = null;
+                    $scope.address = null;
+                };
+
+                $scope.fetchFacultyProfileData = function () {
+                    $http
+                        .get('/facultyProfileData')
+                        .then(function (response) {
+                            // If request is successful and data exists, update scope variables
+                            if (response.data) {
+                                $scope.name = response.data.name;
+                                $scope.mentorid = response.data.mentorid;
+                                $scope.dept = response.data.dept;
+                                $scope.school = response.data.school;
+                            } else {
+                                // If no data exists, display "none" or empty strings
+                                $scope.name = '';
+                                $scope.mentorid = '';
+                                $scope.dept = '';
+                                $scope.school = '';
+                            }
+                        })
+                        .catch(function (error) {
+                            console.error('Error fetching faculty profile data:', error);
+                            // Handle error, e.g., display error message
+                        });
+                };
+
+                $scope.fetchFacultyProfileData();
+
+            });
       </script>
 </body>
 </html>

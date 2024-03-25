@@ -11,7 +11,7 @@ const port = 3000;
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root', // mysql username
-	password: '19601348', // mysql password
+	password: '', // mysql password
 	database: 'student', // database name
 });
 
@@ -98,50 +98,107 @@ app.post('/submit_leave', upload.none(), (req, res) => {
 	const type_of_leave = leaveType === 'special' ? 'S' : 'A';
 
 	// Set last_approved_by to 'mentor'
-	const last_approved_by = 'none';
+	const last_approved_by = 'None';
+	const status = 'Pending';
 
 	const query =
-		'INSERT INTO student_leave (sap_id, fromdate, todate, type_of_leave, reason, address, last_approved_by) VALUES (?, ?, ?, ?, ?, ?, ?)';
+		'INSERT INTO student_leave (sap_id, fromdate, todate, type_of_leave, reason, address, last_approved_by, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
 	connection.query(
 		query,
-		[username, fromDate, toDate, type_of_leave, reasonForLeave, address, last_approved_by],
+		[username, fromDate, toDate, type_of_leave, reasonForLeave, address, last_approved_by, status],
 		error => {
 			if (error) {
 				console.error('Error executing query: ' + error);
 				res.status(500).send('Internal Server Error');
 				return;
 			}
-
 			// Send a success response
 			res.status(200).send('Form submitted successfully!');
 		}
 	);
 });
 
-app.get('/dates', (req, res) => {
-	const username = req.session.username; // Retrieve username from session
-	const query =
-		'SELECT fromdate, todate FROM student_leave WHERE sap_id = ? ORDER BY sap_id DESC LIMIT 1';
+app.get('/profileData', (req, res) => {
+    const username = req.session.username; // Retrieve username from session
+    const query = 'SELECT sap_id, name, roll, course, branch, sem, mentorid FROM student_basic_info WHERE sap_id = ?';
 
-	connection.query(query, [username], (error, results, fields) => {
-		if (error) {
-			console.error('Error executing query: ' + error);
-			res.status(500).send('Internal Server Error');
-			return;
-		}
+    connection.query(query, [username], (error, results, fields) => {
+        if (error) {
+            console.error('Error executing query: ' + error);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
 
-		// If results exist, send the dates, otherwise send null
-		if (results.length > 0) {
-			const dates = {
-				fromDate: results[0].fromdate,
-				toDate: results[0].todate,
-			};
-			res.send(dates);
-		} else {
-			res.send(null);
-		}
-	});
+        // If results exist, send the data, otherwise send null
+        if (results.length > 0) {
+            const studentData = {
+                sap_id: results[0].sap_id,
+                name: results[0].name,
+                roll: results[0].roll,
+                course: results[0].course,
+                branch: results[0].branch,
+                sem: results[0].sem,
+                mentorid: results[0].mentorid,
+            };
+            res.send(studentData);
+        } else {
+            res.send(null);
+        }
+    });
+});
+
+
+app.get('/statuscarddata', (req, res) => {
+    const username = req.session.username; // Retrieve username from session
+    const query = 'SELECT fromdate, todate, last_approved_by, status FROM student_leave WHERE sap_id = ? ORDER BY fromdate DESC LIMIT 1';
+
+    connection.query(query, [username], (error, results, fields) => {
+        if (error) {
+            console.error('Error executing query: ' + error);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        // If results exist, send the dates, otherwise send null
+        if (results.length > 0) {
+            const dates = {
+                fromDate: results[0].fromdate,
+                toDate: results[0].todate,
+                last_approved_by: results[0].last_approved_by,
+                status: results[0].status,
+            };
+            res.send(dates);
+        } else {
+            res.send(null);
+        }
+    });
+});
+
+app.get('/facultyProfileData', (req, res) => {
+    const username = req.session.username; // Retrieve username from session
+    const query = 'SELECT name, mentorid, dept, school FROM teacher_basic_info WHERE mentorid = ?';
+
+    connection.query(query, [username], (error, results, fields) => {
+        if (error) {
+            console.error('Error executing query: ' + error);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        // If results exist, send the faculty data, otherwise send null
+        if (results.length > 0) {
+            const facultyData = {
+                name: results[0].name,
+                mentorid: results[0].mentorid,
+                dept: results[0].dept,
+                school: results[0].school
+            };
+            res.send(facultyData);
+        } else {
+            res.send(null);
+        }
+    });
 });
 
 // Start the server
