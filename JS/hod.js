@@ -24,7 +24,7 @@ navBar.addEventListener('click', function (e) {
 	if (e.target.type === 'submit') {
 		const ans = window.confirm('Sure???');
 		if (ans) {
-			window.location.replace('login.html');
+			window.location.replace('index.html');
 		}
 	}
 });
@@ -94,7 +94,7 @@ getMentorLeaveCount()
 			const address = row.address || 'N/A';
 			const lastApprovedBy = row.last_approved_by || 'N/A';
 
-			if (lastApprovedBy === 'none') {
+			if (lastApprovedBy === 'Mentor') {
 				const html = 
 				`<div class="status-card">
 					<div class="status-card-up">

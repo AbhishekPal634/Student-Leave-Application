@@ -1,9 +1,9 @@
 'use strict';
 
 const navBar = document.querySelector('.navbar');
-const mentees = document.querySelector('.mentees');
+// const mentees = document.querySelector('.mentees');
 const leaveApplicants = document.querySelector('.applicants');
-const defaulters = document.querySelector('.defaulters');
+// const defaulters = document.querySelector('.defaulters');
 
 // NavBar Functioning
 navBar.addEventListener('click', function (e) {
@@ -50,15 +50,15 @@ const activeCard = function (e) {
 	}
 };
 
-mentees.addEventListener('mouseup', activeCard);
-defaulters.addEventListener('mouseup', activeCard);
+// mentees.addEventListener('mouseup', activeCard);
+// defaulters.addEventListener('mouseup', activeCard);
 // leaveApplicants.addEventListener('mouseup', activeCard);
 
-//NEW STUFFFF
+//NEW STUFF
 
 function getMentorLeaveCount() {
 	return new Promise((resolve, reject) => {
-		fetch('/mentorLeaveCount', {
+		fetch('/deanLeaveCount', {
 			method: 'GET',
 			credentials: 'same-origin', // Assuming your session uses cookies for authentication
 		})
@@ -94,7 +94,7 @@ getMentorLeaveCount()
 			const address = row.address || 'N/A';
 			const lastApprovedBy = row.last_approved_by || 'N/A';
 
-			if (lastApprovedBy === 'None' || lastApprovedBy === 'none') {
+			if (lastApprovedBy === 'HOD') {
 				const html = 
 				`<div class="status-card">
 					<div class="status-card-up">
@@ -129,3 +129,4 @@ getMentorLeaveCount()
 		console.error('Error fetching mentor leave count:', error);
 		// Handle error, e.g., display error message
 	});
+
