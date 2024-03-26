@@ -52,7 +52,7 @@ const activeCard = function (e) {
 
 mentees.addEventListener('mouseup', activeCard);
 defaulters.addEventListener('mouseup', activeCard);
-leaveApplicants.addEventListener('mouseup', activeCard);
+// leaveApplicants.addEventListener('mouseup', activeCard);
 
 //NEW STUFFFF
 
@@ -95,25 +95,28 @@ getMentorLeaveCount()
 			const lastApprovedBy = row.last_approved_by || 'N/A';
 
 			if (lastApprovedBy === 'none') {
-				const html = `<div class="status-card">
-                    <div class="card-info">
-                        <h3 class="name">${name}</h3>
-                        <h3 class="name">${sapId}</h3>
-                        <p class="leave-details">
-                            From: ${fromdate}<br>
-                            To: ${todate}<br>
-                            Type: ${typeOfLeave}<br>
-                            Reason: ${reason}<br>
-                            Address: ${address}<br>
-                            Last Approved By: ${lastApprovedBy}
-                        </p>
-                    </div>
-					<div class="button">
+				const html = 
+				`<div class="status-card">
+					<div class="status-card-up">
+						<div class="card-info">
+							<h3 class="name">${name}</h3>
+							<h3 class="name">${sapId}</h3> <br>
+							<p class="leave-details">
+								<b>From</b>: ${fromdate}<br>
+								<b>To</b>: ${todate}<br>
+								<b>Type</b>: ${typeOfLeave}<br>
+								<b>Reason</b>: ${reason}<br>
+								<b>Address</b>: ${address}<br>
+								<b>Last Approved By</b>: ${lastApprovedBy}
+							</p>
+						</div>
+						<div class="status-indicator">
+							<i id="red" class='bx bxs-circle' ></i>
+						</div>
+					</div>
+					<div class="arbutton">
                         <input class="button approve" type="submit" value="Approve">
-                        <input class="button reject" type="submit" value="reject">
-                    </div>
-                    <div class="status-indicator">
-                        <i id="red" class='bx bxs-circle' ></i>
+                        <input class="button reject" type="submit" value="Reject">
                     </div>
                 </div>`;
 				const div = document.createElement('div'); // Create a new div element

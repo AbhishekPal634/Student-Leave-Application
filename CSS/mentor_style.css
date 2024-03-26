@@ -64,7 +64,7 @@ body {
 }
 
 .status-card {
-	display: flex;
+	/* display: flex; */
 	padding: 1em;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
@@ -81,6 +81,47 @@ body {
 	transition: 0.2s ease-in;
 	opacity: 1;
 }
+
+.status-card-up {
+	display: flex;
+}
+
+.button {
+	margin-top: 20px;
+	width: 8rem;
+	height: 3rem;
+	font-size: 1rem;
+	border-radius: 50px;
+	font-weight: 700;
+	color: white;
+	border: none;
+}
+
+.approve:hover {
+	cursor: pointer;
+	background-color: rgb(0, 105, 0);
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+	transition: 0.2s ease-in;
+	opacity: 1;
+}
+
+.reject:hover {
+	cursor: pointer;
+	background-color: rgb(155, 0, 0);
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+	transition: 0.2s ease-in;
+	opacity: 1;
+}
+
+.approve {
+	margin-right: 30px;
+	background-color: rgb(0, 139, 0);
+}
+
+.reject {
+	background-color: rgb(127, 0, 0);
+}
+
 .active-card {
 	min-height: 25rem;
 	max-height: 30rem;

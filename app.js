@@ -11,7 +11,7 @@ const port = 3000;
 const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root', // mysql username
-	password: '19601348', // mysql password
+	password: '', // mysql password
 	database: 'student', // database name
 });
 
@@ -247,3 +247,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	console.log(`Server is running on port http://localhost:${port}`);
 });
+
+
