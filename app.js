@@ -76,6 +76,11 @@ app.post('/login', (req, res) => {
 					req.session.username = username;
 					res.redirect('/programchair.html');
 					break;
+				case 'hod':
+					// Save username in session
+					req.session.username = username;
+					res.redirect('/hod.html');
+					break;
 				default:
 					res.status(500).send('Unknown user type');
 			}
@@ -242,10 +247,47 @@ WHERE sbi.mentorid = (
 	});
 });
 
+
+app.get('/hodLeaveCount', (req, res) => {
+	const username = req.session.username;
+	const query = `
+SELECT sbi.*, 
+       IFNULL(
+           (SELECT COUNT(*) 
+            FROM student_leave sl 
+            WHERE sl.sap_id = sbi.sap_id 
+              AND sl.last_approved_by = 'Mentor' 
+              AND sl.status = 'Pending'
+           ), 0) AS count,
+       sl.fromdate,
+       sl.todate,
+       sl.type_of_leave,
+       sl.reason,
+       sl.address,
+       sl.last_approved_by
+FROM student_basic_info sbi
+LEFT JOIN student_leave sl ON sbi.sap_id = sl.sap_id
+WHERE sl.last_approved_by = 'Mentor' AND sbi.mentorid = (
+    SELECT mentorid
+    FROM student_basic_info
+    WHERE sap_id = sbi.sap_id
+) AND sbi.mentorid = ?;
+    `;
+	connection.query(query, [username], (error, results, fields) => {
+		if (error) {
+			console.error('Error executing query: ' + error);
+			res.status(500).send('Internal Server Error');
+			return;
+		}
+
+		// Send all the data fetched from the query
+		res.json(results);
+	});
+});
+
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
 	console.log(`Server is running on port http://localhost:${port}`);
 });
-
-
